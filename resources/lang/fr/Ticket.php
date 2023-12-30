@@ -47,6 +47,6 @@ return array (
   'ticket_sales_paused' => 'Ventes suspendues',
   'ticket_sub_text_color' => 'Couleur de sous-texte du billet',
   'ticket_text_color' => 'Couleur de texte du billet',
-  'ticket_type' => 'Type de billet',
+  'ticket_type' => 'Billet',
   'venue' => 'Lieu',
 );

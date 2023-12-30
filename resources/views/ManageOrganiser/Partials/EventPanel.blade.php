@@ -41,13 +41,22 @@
     <div class="panel-footer">
         <ul class="nav nav-section nav-justified">
             <li>
-                <a href="{{route('showEventCustomize', ['event_id' => $event->id])}}">
-                    <i class="ico-edit"></i> @lang("basic.edit")
+                <a href="{{ $event->deleted_at==null? route('showEventCustomize',['event_id' => $event->id]) : '#' }}" {!! $event->deleted_at==null? "" : 'disabled data-toggle'.'="tooltip" title="'.trans("basic.restorebeforeusingthis").'"' !!} >
+				<i class="ico-edit"></i> @lang("basic.edit")
                 </a>
             </li>
-
             <li>
-                <a href="{{route('showEventDashboard', ['event_id' => $event->id])}}">
+                <a href="{{ $event->deleted_at==null? route('duplicateEvent', ['event_id' => $event->id ] ) : '#' }}" {!! $event->deleted_at==null? "" : 'disabled data-toggle'.'="tooltip" title="'.trans("basic.restorebeforeusingthis").'"' !!} >
+                    <i class="ico-copy"></i> @lang("basic.duplicate")
+                </a>
+            </li>
+            <li>
+                <a href="{{  $event->deleted_at==null? route('archiveEvent',['event_id' => $event->id]) : route('restoreEvent', ['event_id' => $event->id]) }}">
+                    <i class="{{ $event->deleted_at==null?'ico-trash':'ico-undo' }}" > </i> {{ $event->deleted_at==null? '  '.trans("basic.archive") : '  '.trans("basic.restore") }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ $event->deleted_at==null? route('showEventDashboard', ['event_id' => $event->id]): '#' }}" {!! $event->deleted_at==null? "" : 'disabled data-toggle'.'="tooltip" title="'.trans("basic.restorebeforeusingthis").'"' !!} >                
                     <i class="ico-cog"></i> @lang("basic.manage")
                 </a>
             </li>

@@ -67,7 +67,7 @@ return [
     'default_date_picker_seperator' => env('DEFAULT_DATEPICKER_SEPERATOR', '-'),
     'default_datetime_format'       => env('DEFAULT_DATETIME_FORMAT', 'Y-m-d H:i'),
     'default_query_cache'           => 120, #Minutes
-    'default_locale'                => 'en',
+    'default_locale'                => 'fr',
     'default_payment_gateway'       => 1, #Stripe=1 Paypal=2
 
     'cdn_url_user_assets'   => '',

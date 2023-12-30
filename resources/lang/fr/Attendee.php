@@ -10,11 +10,11 @@ return array (
   //==================================== Translations ====================================//
   'attendees' => 'Participants',
   'check_in' => 'Enregistrement : :event',
-  'email' => 'e-mail',
+  'email' => 'Email',
   'email_address' => 'Adresse e-mail',
   'event_attendees' => 'Participants à l\'évènement',
   'first_name' => 'Prénom',
-  'last_name' => 'Nom de famille',
+  'last_name' => 'Nom',
   'name' => 'Nom',
   'search_attendees' => 'Rechercher des participants...',
   'send_invitation_n_ticket_to_attendee' => 'Envoyer invitation et ticket au participant.',

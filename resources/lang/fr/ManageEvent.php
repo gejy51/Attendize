@@ -46,6 +46,7 @@ return array (
   'issue_full_refund' => 'Lancer un remboursement complet',
   'issue_partial_refund' => 'Lancer un remboursement partiel',
   'manage_order_title' => 'Commande : <b>:order_ref</b>',
+  'less_options' => 'Montrer Less',
   'mark_payment_received' => 'Marquer le paiement comme reçu',
   'maximum_tickets_per_order' => 'Maximum de billets par commande',
   'message_attendee_title' => 'Message pour :attendee',

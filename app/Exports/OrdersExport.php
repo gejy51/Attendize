@@ -29,6 +29,8 @@ class OrdersExport implements FromQuery, WithHeadings, WithEvents
 
         $query = Order::query()->where('event_id', $this->event_id);
         $query->select([
+		DB::raw("substr(notes,1,3) As Essai, substring_index(substr(notes,5),x'09',1) AS Départ, substr(replace(notes,'MD','M.D'),9) As Téléphone"),
+//			'orders.notes',
             'orders.first_name',
             'orders.last_name',
             'orders.email',
@@ -38,6 +40,9 @@ class OrdersExport implements FromQuery, WithHeadings, WithEvents
             DB::raw("(CASE WHEN orders.is_partially_refunded = 1 THEN '$yes' ELSE '$no' END) AS `orders.is_partially_refunded`"),
             'orders.amount_refunded',
             'orders.created_at',
+			'orders.payment_intent',
+//			'orders.status',
+			'orders.is_cancelled',
         ]);
 
         return $query;
@@ -46,6 +51,10 @@ class OrdersExport implements FromQuery, WithHeadings, WithEvents
     public function headings(): array
     {
         return [
+			'Essai',
+			'Départ',
+			'Téléphone',
+//			trans("Order.notes"),
             trans("Attendee.first_name"),
             trans("Attendee.last_name"),
             trans("Attendee.email"),
@@ -55,6 +64,10 @@ class OrdersExport implements FromQuery, WithHeadings, WithEvents
             trans("Order.partially_refunded"),
             trans("Order.amount_refunded"),
             trans("Order.order_date"),
+			trans("Order.payment_intent"),
+//			'Statut',
+			trans("Order.is_cancelled"),
+			
         ];
     }
 

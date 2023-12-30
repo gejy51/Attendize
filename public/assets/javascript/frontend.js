@@ -4744,9 +4744,19 @@ $(function() {
     });
 
     $('#mirror_buyer_info').on('click', function(e) {
+		//alert("TesT= "+ $('#order_test[:checked]').val());		
+		var confirmText = 'Pour éviter que votre demande soit rejetée\nMerci de vérifier vos données saisies :\n';
+		confirmText +=  "C'est un Essai : " + $('#order_essai').val() + '\n';
+		confirmText +=  "Départ (Bel/MD/_RS) : " + $('#order_from').val() + '\n';
+		confirmText +=  "N° Téléphone : " + $('#order_phone').val() + '\n';
+		confirmText +=  "Votre courriel : " + $('#order_email').val() + '\n';
+		if (confirm(confirmText)==false) {
+			alert('Merci de corriger les inexactitudes');
+		}
         $('.ticket_holder_first_name').val($('#order_first_name').val());
         $('.ticket_holder_last_name').val($('#order_last_name').val());
         $('.ticket_holder_email').val($('#order_email').val());
+		//$('#order_notes').val($('#order_test:checked').val() + '\t' + $('#order_from').val() + '\t' + $('#order_phone').val());			
     });
 
     $('.card-number').payment('formatCardNumber');

@@ -565,6 +565,10 @@ class EventCheckoutController extends Controller
             $order->account_id = $event->account->id;
             $order->event_id = $ticket_order['event_id'];
             $order->is_payment_received = isset($request_data['pay_offline']) ? 0 : 1;
+			$note = $request_data['order_essai'] . chr(9) . $request_data['order_from'] . chr(9) .  $request_data['order_phone'];	
+			$request_data['order_note'] = $note;
+            $order->notes = sanitise($note);			
+            //$order->notes = sanitise($request_data['order_notes']);
 
             // Business details is selected, we need to save the business details
             if (isset($request_data['is_business']) && (bool)$request_data['is_business']) {
@@ -727,11 +731,11 @@ class EventCheckoutController extends Controller
         SendOrderConfirmationJob::dispatch($order, $orderService);
         // Send tickets to attendees
         Log::debug('Queueing Attendee Ticket Jobs');
-        foreach ($order->attendees as $attendee) {
+ /*       foreach ($order->attendees as $attendee) {
             SendOrderAttendeeTicketJob::dispatch($attendee);
             Log::debug('Queueing Attendee Ticket Job Done');
         }
-
+*/
         if ($return_json) {
             return response()->json([
                 'status'      => 'success',

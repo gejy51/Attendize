@@ -63,8 +63,10 @@
                 {!! Form::hidden('event_id', $event->id) !!}
 
                 <h3> @lang("Public_ViewEvent.your_information")</h3>
-
+				
                 <div class="row">
+                 </div>
+                  <div class="row">
                     <div class="col-xs-6">
                         <div class="form-group">
                             {!! Form::label("order_first_name", trans("Public_ViewEvent.first_name")) !!}
@@ -78,17 +80,56 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-xs-6">
                         <div class="form-group">
                             {!! Form::label("order_email", trans("Public_ViewEvent.email")) !!}
                             {!! Form::text("order_email", null, ['required' => 'required', 'class' => 'form-control']) !!}
                         </div>
                     </div>
+                    <div class="col-xs-6">
+                         <div class="form-group">
+                            {!! Form::label("order_phone", trans("Public_ViewEvent.order_phone")) !!}
+                            {!! Form::text('order_phone', null, ['required' => 'required', 'class' => 'form-control']) !!}
+                        </div>
+                    </div>
                 </div>
-                <div class="row"><div class="col-md-12">&nbsp;</div></div>
+              <div class="row">		
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            {!! Form::label("order_essai", trans("Public_ViewEvent.order_essai")) !!}
+                             <select id="order_essai" name="order_essai">
+							 <option value="Non"  selected="true">Non, je suis adhérent(e)</option>
+							 <option value="Oui">Oui, c'est ma 1ère participation</option>
+							 </select>							
+                       </div>
+                   </div>
+                   <div class="col-xs-6">
+                        <div class="form-group">
+                            {!! Form::label("order_from", trans("Public_ViewEvent.order_from")) !!}
+                             <select id="order_from" name="order_from">
+							 <option value="Bel" selected="selected">Bellecour</option>
+							 <option value="MD">Maison de la Danse</option>
+							 <option value="_RS">Départ TCL (rando-santé)</option>
+							 </select>							
+                       </div>
+                    </div> 				
+                </div>
+
                 <div class="row">
+                    <div class="col-md-12">
+                    </div>
+                </div>
+				
+				<div class="row hidden">
+					<div class="col-md-12">
+                        <div class="form-group">
+                            {!! Form::label("order_notes", trans("Public_ViewEvent.notes")) !!}
+                            {!! Form::text('order_notes', 'X', [ 'class' => 'form-control']) !!}
+                        </div>
+					</div>
+				</div>
+                <div class="row hidden">
                     <div class="col-md-12">
                         <div class="form-group">
                             <div class="custom-checkbox">

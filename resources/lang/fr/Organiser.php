@@ -65,6 +65,7 @@ return array (
   'yes' => 'Oui',
   'no' => 'Non',
   'sales_volume' => 'Volume de vente',
+  'see_archived_event' => 'Voir les Evénements Archivés',
   'select_an_organiser' => 'Sélectionner un organisateur',
   'select_organiser' => 'Sélectionner un organisateur',
   'text_color' => 'Couleur de texte',
